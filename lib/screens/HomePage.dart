@@ -5,21 +5,25 @@ import '../Bloc/theme_bloc.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-      title: Text('Theme manage by bloc'),
-      centerTitle: true,
-      actions: [
-        Switch(
-          value: context.read<ThemeBloc>().state == ThemeMode.dark,
-          onChanged: (value) {
-            context.read<ThemeBloc>().add(ThemeChanged(value));
-          },
-        )
-      ],
-    ));
+      appBar: AppBar(
+        title: Text('Theme manage by bloc'),
+        centerTitle: true,
+        actions: [
+          Switch(
+            value: context.read<ThemeBloc>().state == ThemeMode.dark,
+            onChanged: (value) {
+              context.read<ThemeBloc>().add(ThemeChanged(value));
+            },
+          )
+        ],
+      ),
+      body: Center(
+        child: Text('Dark And Light Theme'),
+      ),
+      bottomSheet: Text('@Created BY Harshit vyas'),
+    );
   }
 }
